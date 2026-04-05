@@ -1,5 +1,124 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Fonts */
+  --font-display: var(--font-fredoka);
+  --font-sans: var(--font-inter);
+
+  /* Brand Colors */
+  --color-accent: #7c3aed;
+  --color-accent-light: #8b5cf6;
+  --color-accent-glow: #a78bfa33;
+
+  /* Light Mode */
+  --color-bg: #f5f5f0;
+  --color-bg-secondary: #eaeae4;
+  --color-surface: #ffffff;
+  --color-border: #d4d4cc;
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #4a4a6a;
+
+  /* Dark Mode */
+  --color-bg-dark: #0f0f1a;
+  --color-bg-secondary-dark: #16162a;
+  --color-surface-dark: #1e1e33;
+  --color-border-dark: #2e2e4a;
+  --color-text-primary-dark: #f5f5f0;
+  --color-text-secondary-dark: #a0a0c0;
+}
+
+/* Base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans), sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark mode body */
+.dark body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-primary-dark);
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-light);
+}
+
+/* Utility classes for Tactixly */
+.tactixly-surface {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.dark .tactixly-surface {
+  background-color: var(--color-surface-dark);
+  border-color: var(--color-border-dark);
+}
+
+.tactixly-text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.dark .tactixly-text-secondary {
+  color: var(--color-text-secondary-dark);
+}
+
+/* Accent glow effect for interactive elements */
+.accent-glow {
+  box-shadow: 0 0 20px var(--color-accent-glow);
+}
+
+/* Smooth transitions for interactive elements */
+button,
+a,
+[role="button"] {
+  transition: all 0.2s ease;
+}
+
 @layer components {
   .box {
     @apply bg-blue-400 w-full h-full flex items-center justify-center text-8xl cursor-pointer;

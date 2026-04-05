@@ -1,6 +1,6 @@
 "use client";
 
-import { Board } from "@/components";
+import { Board, ThemeToggle } from "@/components";
 import { useGame } from "@/hooks";
 
 const Home = () => {
@@ -11,6 +11,7 @@ const Home = () => {
       <p>{gameStatus}</p>
       <Board board={board} handleClick={handleClick} />
       <button onClick={restartGame}>Restart</button>
+      <ThemeToggle />
     </div>
   );
 };
