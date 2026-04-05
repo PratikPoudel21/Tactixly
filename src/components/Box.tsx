@@ -17,4 +17,4 @@ const Box = ({ children, handleClick, index }: Props) => {
   );
 };
 
-export default Box;
+export { Box };

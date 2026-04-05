@@ -1,7 +1,7 @@
 // Board component
 "use client";
 
-import Box from "./Box";
+import { Box } from "./Box";
 
 interface Props {
   board: string[];
@@ -22,4 +22,4 @@ const Board = ({ board, handleClick }: Props) => {
   );
 };
 
-export default Board;
+export { Board };
